@@ -53,6 +53,8 @@ jobs:
             --meta home_domain=aqua.network \
             --meta source_repo=github:${{ github.repository }}
 
+          cd ..
+
           stellar contract optimize --wasm ${{ env.WASM_FILE }}
           file=${{ env.WASM_FILE }}
           cp "${file%.*}.optimized.wasm" ${{ env.WASM_FILE }}
